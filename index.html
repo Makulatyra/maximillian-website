@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ру">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaxiPet — магазин домашних животных и кормов</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">🐾</span>
+        <span>MaxiPet</span>
+      </a>
+      <nav class="nav">
+        <a class="active" href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="tips.html">Советы</a>
+        <a href="about.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Меню" id="navToggle">☰</button>
+      <div class="header-cta">
+        <a class="btn" href="cart.html">Корзина</a>
+        <a class="btn primary" href="catalog.html">Купить</a>
+      </div>
+    </div>
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <a class="active" href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="tips.html">Советы</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="kicker">Здоровье и радость питомцев</div>
+          <h1>Домашние животные, корма и всё для ухода</h1>
+          <p>Подберём корма, лакомства и аксессуары для собак, кошек, птиц и грызунов. Поможем советом, доставим быстро.</p>
+          <div class="badges">
+            <span class="badge">⚡ Быстрая доставка</span>
+            <span class="badge">🧪 Проверенные бренды</span>
+            <span class="badge">💬 Поддержка 24/7</span>
+          </div>
+          <div>
+            <a class="btn primary" href="catalog.html">Перейти в каталог</a>
+            <a class="btn accent" href="tips.html">Советы по уходу</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="assets/img/placeholder-96.png" alt="Коробка корма" width="96" height="96" class="text-center" justify-content="center" display="flex" onerror="this.style.background='#eef6ee';this.style.borderRadius='12px'">
+          <div>
+            <h3>Скидка 15% на сухие корма</h3>
+            <p>Подходит для активных собак всех пород. Богат белком и витаминами.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Популярные категории</h2>
+        <div class="grid cols-4">
+          <a class="card" href="catalog.html#dogs">
+            <img src="assets/img/placeholder-1x1.png" alt="Для собак" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Для собак</strong>
+              <div class="kicker">корм, уход</div>
+            </div>
+          </a>
+          <a class="card" href="catalog.html#cats">
+            <img src="assets/img/placeholder-1x1.png" alt="Для кошек" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Для кошек</strong>
+              <div class="kicker">корм, лотки, когтеточки</div>
+            </div>
+          </a>
+          <a class="card" href="catalog.html#birds">
+            <img src="assets/img/placeholder-1x1.png" alt="Для птиц" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Для птиц</strong>
+              <div class="kicker">кормушки, смеси</div>
+            </div>
+          </a>
+          <a class="card" href="catalog.html#rodents">
+            <img src="assets/img/placeholder-1x1.png" alt="Для грызунов" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Для грызунов</strong>
+              <div class="кicker">домики, наполнители</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Хиты продаж</h2>
+        <div class="grid cols-4">
+          <div class="card">
+            <img src="assets/img/placeholder-1x1.png" alt="Сухой корм MaxiDog" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Сухой корм MaxiDog 3кг</strong>
+              <div class="kicker">для взрослых собак</div>
+              <div class="price">1 290 ₽</div>
+              <button class="btn js-add-to-cart" data-id="md3" data-name="MaxiDog 3кг" data-price="1290">В корзину</button>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/img/placeholder-1x1.png" alt="Консервы для кошек" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Консервы для кошек 400г</strong>
+              <div class="kicker">курица</div>
+              <div class="price">99 ₽</div>
+              <button class="btn js-add-to-cart" data-id="cc400" data-name="Консервы 400г" data-price="99">В корзину</button>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/img/placeholder-1x1.png" alt="Наполнитель древесный" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Наполнитель древесный 5л</strong>
+              <div class="kicker">эко</div>
+              <div class="price">249 ₽</div>
+              <button class="btn js-add-to-cart" data-id="wood5" data-name="Наполнитель 5л" data-price="249">В корзину</button>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/img/placeholder-1x1.png" alt="Клетка для хомяка" onerror="this.style.background='#eef6ee'" class="text-center">
+            <div class="card-body text-center">
+              <strong>Клетка для хомяка</strong>
+              <div class="kicker">стартовый набор</div>
+              <div class="price">1 990 ₽</div>
+              <button class="btn js-add-to-cart" data-id="cage1" data-name="Клетка" data-price="1990">В корзину</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo"><span class="logo-badge">🐾</span><span>MaxiPet</span></div>
+        <small>© 2025 MaxiPet. Все права защищены.</small>
+      </div>
+      <div>
+        <small>НЕКРАСОВ ВЯЧЕСЛАВ ВЛАДИМИРОВИЧ</small><br>
+        <small>ОГРНИП: 325246800113593</small><br>
+        <small>ИНН: 246404035120</small><br>
+        <small><a href="tel:79181354657">+7 (918) 135-46-57</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function(){
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('mobileNav');
+      const backdrop = document.getElementById('mobileBackdrop');
+      function open(){ nav.style.display='block'; backdrop.style.display='block'; }
+      function close(){ nav.style.display='none'; backdrop.style.display='none'; }
+      toggle.addEventListener('click', function(){ if(nav.style.display==='block'){ close(); } else { open(); } });
+      backdrop.addEventListener('click', close);
+      nav.addEventListener('click', function(e){ if(e.target.tagName==='A'){ close(); } });
+    })();
+  </script>
+</body>
+</html>

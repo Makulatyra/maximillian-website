@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ру">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>О нас — MaxiPet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-бадже">🐾</span>
+        <span>MaxiPet</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="tips.html">Советы</a>
+        <a class="active" href="about.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Меню" id="navToggle">☰</button>
+      <div class="header-cta">
+        <a class="btn" href="cart.html">Корзина</a>
+        <a class="btn primary" href="catalog.html">Купить</a>
+      </div>
+    </div>
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="tips.html">Советы</a>
+      <a class="active" href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="kicker">О компании</div>
+        <h1>MaxiPet — забота о питомцах с 2025 года</h1>
+        <p>Мы специализируемся на розничной торговле домашними животными, кормами и зоотоварами. Наша миссия — помогать людям заботиться о здоровье и счастье их питомцев, предлагая качественные товары и понятные рекомендации.</p>
+        <p>В MaxiPet вы найдёте проверенные бренды кормов, лакомства, амуницию, наполнители и аксессуары для ежедневного ухода. Мы внимательно следим за условиями хранения и логистикой, чтобы каждый товар попадал к вам свежим и безопасным.</p>
+        <p>Команда консультантов с профильным опытом всегда подскажет по подбору рациона, особенностям содержания и профилактике распространённых проблем. Мы регулярно обновляем ассортимент и проводим акции, чтобы сделать заботу о питомцах доступнее.</p>
+
+        <div class="grid cols-3" style="margin-top:16px">
+          <div class="card"><div class="card-body"><strong>10 000+ позиций</strong><div class="kicker">в каталоге</div></div></div>
+          <div class="card"><div class="card-body"><strong>7 дней в неделю</strong><div class="kicker">поддержка</div></div></div>
+          <div class="card"><div class="card-body"><strong>Доставка за 1-2 дня</strong><div class="kicker">по городу</div></div></div>
+        </div>
+
+        <div class="grid cols-3" style="margin-top:16px">
+          <div class="card"><div class="card-body"><strong>Качество и безопасность</strong><div class="kicker">сертификаты и контроль</div><p>Работаем с официальными поставщиками, проверяем документы и условия хранения каждого лота.</p></div></div>
+          <div class="card"><div class="card-body"><strong>Индивидуальный подбор</strong><div class="kicker">рацион и уход</div><p>Поможем подобрать корм с учётом возраста, активности и особенностей здоровья вашего питомца.</p></div></div>
+          <div class="card"><div class="card-body"><strong>Удобные покупки</strong><div class="kicker">онлайн и в магазине</div><p>Заказывайте онлайн с быстрой доставкой или приезжайте в магазин — всегда рады вам и вашим хвостикам.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo"><span class="logo-бадже">🐾</span><span>MaxiPet</span></div>
+        <small>© 2025 MaxiPet.</small>
+      </div>
+      <div>
+        <small>НЕКРАСОВ ВЯЧЕСЛАВ ВЛАДИМИРОВИЧ</small><br>
+        <small>ОГРНИП: 325246800113593</small><br>
+        <small>ИНН: 246404035120</small><br>
+        <small><a href="tel:79181354657">+7 (918) 135-46-57</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function(){
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('mobileNav');
+      const backdrop = document.getElementById('mobileBackdrop');
+      function open(){ nav.style.display='block'; backdrop.style.display='block'; }
+      function close(){ nav.style.display='none'; backdrop.style.display='none'; }
+      toggle.addEventListener('click', function(){ if(nav.style.display==='block'){ close(); } else { open(); } });
+      backdrop.addEventListener('click', close);
+      nav.addEventListener('click', function(e){ if(e.target.tagName==='A'){ close(); } });
+    })();
+  </script>
+</body>
+</html>

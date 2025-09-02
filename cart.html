@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ру">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина — MaxiPet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-бадже">🐾</span>
+        <span>MaxiPet</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="tips.html">Советы</a>
+        <a href="about.html">О нас</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Меню" id="navToggle">☰</button>
+      <div class="header-cta">
+        <a class="btn primary" href="catalog.html">В каталог</a>
+      </div>
+    </div>
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="tips.html">Советы</a>
+      <a href="about.html">О нас</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="kicker">Ваш заказ</div>
+        <h1>Корзина</h1>
+        <div id="cart-list" class="grid" style="grid-template-columns:1fr;gap:12px"></div>
+        <div class="card" style="margin-top:12px">
+          <div class="card-body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <strong>Итого</strong>
+              <strong id="cart-total" class="price">0 ₽</strong>
+            </div>
+            <button id="checkout" class="btn primary" style="margin-top:10px">Оформить заказ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo"><span class="logo-бадже">🐾</span><span>MaxiPet</span></div>
+        <small>© 2025 MaxiPet.</small>
+      </div>
+      <div>
+        <small>НЕКРАСОВ ВЯЧЕСЛАВ ВЛАДИМИРОВИЧ</small><br>
+        <small>ОГРНИП: 325246800113593</small><br>
+        <small>ИНН: 246404035120</small><br>
+        <small><a href="tel:79181354657">+7 (918) 135-46-57</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function(){
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('mobileNav');
+      const backdrop = document.getElementById('mobileBackdrop');
+      function open(){ nav.style.display='block'; backdrop.style.display='block'; }
+      function close(){ nav.style.display='none'; backdrop.style.display='none'; }
+      toggle.addEventListener('click', function(){ if(nav.style.display==='block'){ close(); } else { open(); } });
+      backdrop.addEventListener('click', close);
+      nav.addEventListener('click', function(e){ if(e.target.tagName==='A'){ close(); } });
+    })();
+  </script>
+  <script>
+    (function(){
+      function format(n){return new Intl.NumberFormat('ru-RU').format(n)+' ₽'}
+      function render(){
+        const container = document.getElementById('cart-list');
+        const totalEl = document.getElementById('cart-total');
+        const items = window.MaxiCart.readCart();
+        container.innerHTML = '';
+        let total = 0;
+        if(items.length === 0){
+          container.innerHTML = '<div class="card"><div class="card-body">Ваша корзина пуста. Добавьте товары из каталога.</div></div>';
+        } else {
+          items.forEach(item => {
+            const sum = item.price * item.qty;
+            total += sum;
+            const row = document.createElement('div');
+            row.className = 'card';
+            row.innerHTML = '<div class="card-body" style="display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center">'
+              + '<div><strong>'+item.name+'</strong><div class="kicker">'+item.qty+' шт.</div></div>'
+              + '<div class="price">'+format(sum)+'</div>'
+              + '<button class="btn" data-remove="'+item.id+'">Удалить</button>'
+              + '</div>';
+            container.appendChild(row);
+          });
+        }
+        totalEl.textContent = format(total);
+      }
+      document.addEventListener('click', function(e){
+        const btn = e.target.closest('[data-remove]');
+        if(!btn) return;
+        const id = btn.getAttribute('data-remove');
+        const items = window.MaxiCart.readCart().filter(x => x.id !== id);
+        window.MaxiCart.writeCart(items);
+        render();
+      });
+      document.getElementById('checkout').addEventListener('click', function(){
+        window.MaxiCart.writeCart([]);
+        window.MaxiUI.showAnimatedNotice('Спасибо за заказ!','Мы свяжемся с вами в ближайшее время.');
+        render();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>

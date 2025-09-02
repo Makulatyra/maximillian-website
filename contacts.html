@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Контакты — MaxiPet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-badge">🐾</span>
+        <span>MaxiPet</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="tips.html">Советы</a>
+        <a href="about.html">О нас</a>
+        <a class="active" href="contacts.html">Контакты</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Меню" id="navToggle">☰</button>
+      <div class="header-cta">
+        <a class="btn" href="cart.html">Корзина</a>
+        <a class="btn primary" href="catalog.html">Купить</a>
+      </div>
+    </div>
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="tips.html">Советы</a>
+      <a href="about.html">О нас</a>
+      <a class="active" href="contacts.html">Контакты</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="kicker">Связаться с нами</div>
+        <h1>Контакты</h1>
+        <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:16px">
+          <form class="card" onsubmit="event.preventDefault();window.MaxiUI&&MaxiUI.showAnimatedNotice('Сообщение отправлено','Мы свяжемся с вами в ближайшее время.');this.reset();">
+            <div class="card-body">
+              <div class="form-row">
+                <input class="input" type="text" name="name" placeholder="Ваше имя" required>
+                <input class="input" type="tel" name="phone" placeholder="Телефон" required>
+              </div>
+              <input class="input" type="email" name="email" placeholder="Email" style="margin-top:12px" required>
+              <textarea class="input" name="message" rows="5" placeholder="Сообщение" style="margin-top:12px"></textarea>
+              <button class="btn primary" type="submit" style="margin-top:12px">Отправить</button>
+            </div>
+          </form>
+          <div class="card">
+            <div class="card-body">
+              <strong>Наш магазин</strong>
+              <div class="kicker">г.Москва, ул.Арбатская, 1</div>
+              <div style="margin-top:10px;border-radius:12px;overflow:hidden;border:1px solid #cfe6cf">
+                <iframe title="Яндекс Карта — г.Москва, ул.Арбатская, 1" src="https://yandex.ru/map-widget/v1/?ll=37.60418%2C55.75202&z=16&pt=37.60418,55.75202,pm2rdl" width="100%" height="280" frameborder="0" style="display:block;border:0" allowfullscreen="true"></iframe>
+              </div>
+              <div style="margin-top:8px"><small><a href="https://yandex.ru/maps/?ll=37.60418%2C55.75202&z=16&pt=37.60418,55.75202,pm2rdl" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах</a></small></div>
+              <div style="margin-top:10px"><small>Ежедневно 10:00–21:00 • +7 (918) 135-46-57</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="logo"><span class="logo-badge">🐾</span><span>MaxiPet</span></div>
+        <small>© 2025 MaxiPet.</small>
+      </div>
+      <div>
+        <small>НЕКРАСОВ ВЯЧЕСЛАВ ВЛАДИМИРОВИЧ</small><br>
+        <small>ОГРНИП: 325246800113593</small><br>
+        <small>ИНН: 246404035120</small><br>
+        <small><a href="tel:79181354657">+7 (918) 135-46-57</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function(){
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('mobileNav');
+      const backdrop = document.getElementById('mobileBackdrop');
+      function open(){ nav.style.display='block'; backdrop.style.display='block'; }
+      function close(){ nav.style.display='none'; backdrop.style.display='none'; }
+      toggle.addEventListener('click', function(){ if(nav.style.display==='block'){ close(); } else { open(); } });
+      backdrop.addEventListener('click', close);
+      nav.addEventListener('click', function(e){ if(e.target.tagName==='A'){ close(); } });
+    })();
+  </script>
+</body>
+</html>
